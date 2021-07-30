@@ -26,10 +26,10 @@ function App() {
           <Vote brandName = "Samsung" model = "s21 ultra"/>
           <Vote brandName = "Apple" model = "12 mini"/>
           <Vote brandName = "Realme" model = "X7 5G"/>
-          <Vote brandName = "Oppo"/>
-          <Vote brandName = "Nokia"/>
-          <Vote brandName = "Sony"/>
-          <Vote brandName = "MI"/>
+          <Vote brandName = "Oppo" model = "A7"/>
+          <Vote brandName = "Nokia" model = "Lumia 730"/>
+          <Vote brandName = "Sony" model = "Xpress Music"/>
+          <Vote brandName = "MI" model = "Note 10 Pro"/>
         </div>
       )
      
