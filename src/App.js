@@ -1,56 +1,103 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState} from "react";
+import { makeStyles } from '@material-ui/core/styles';
+//import IconButton from '@material-ui/core/IconButton';
+import { Brands } from './Brands';
+import { Users } from './Users';
+//import CardMedia from '@material-ui/core/CardMedia';
+//import MailIcon from '@material-ui/icons/Mail';
+//import classes from '*.module.css';
+//import DeleteIcon from '@material-ui/icons/Delete';
+import { Switch, Route, Link, useParams, Redirect } from 'react-router-dom';
+import { INITIAL_USERS_LIST } from './InitialUserList';
+import { AppBar } from '@material-ui/core';
 
-function App() {
-  
-      /* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h1>Hello</h1>
-        <button>Click me...</button>
-      </header> */
-      return(
-        <div>
-          <img src={logo} className="App-logo" alt="logo" />
-          <Vote brandName = "Samsung" model = "s21 ultra"/>
-          <Vote brandName = "Apple" model = "12 mini"/>
-          <Vote brandName = "Realme" model = "X7 5G"/>
-          <Vote brandName = "Oppo" model = "A7"/>
-          <Vote brandName = "Nokia" model = "Lumia 730"/>
-          <Vote brandName = "Sony" model = "Xpress Music"/>
-          <Vote brandName = "MI" model = "Note 10 Pro"/>
-        </div>
-      )
-     
-    }
-function Vote(a)
-{
-  const [like, setLike] = useState(0);
-  const [dislike, disLike] = useState(0);
- 
-  return (
-    <div className="App" 
-    style={{
-      background: like >= dislike ? "green" : "red"
-      }}>
-    <h1>{a.brandName}</h1>
-    <h4>{a.model}</h4>
-    <button onClick={() => setLike(like + 1)}>👍 {like}</button>
-    <button onClick={() => disLike(dislike + 1)}>👎 {dislike}</button>
-  </div>
-)
+
+function App(){
+  return(
+    <div>
+      <AppBar position="static">
+        <nav className={'nav-bar'}>
+    <Link to = "/">Home</Link>
+    <Link to = "/brands">Brands</Link>
+    <Link to = "/users">Users</Link>
+    </nav>
+    </AppBar>
+    {/* <Link to = "/users/:userid">Users Details</Link> */}
+    <Switch>
+      <Route path="/brands">
+        <Brands/>
+      </Route>
+      <Route path="/vote">
+        <Redirect to="brands"/>
+
+      </Route>
+      <Route exact path="/">
+        <Home/>
+
+      </Route>
+      <Route path="/users/:userid">
+        <UserDetails/>
+
+      </Route>
+      <Route path="/users">
+        <Users />
+
+      </Route>
+      <Route path="*">
+        <NotFound />
+
+      </Route>
+    </Switch>
+    </div>
+  )
 }
 
+function Home(){
+  return(
+    <div>
+      <h2 style={{textAlign: 'center'}}>Welcome to our Kart</h2>
+      <h3 style={{textAlign: 'center'}}>One stop for all your smartphone research.</h3>
+    </div>
+  )
+}
+function NotFound(){
+  return(
+    <div>
+      <h2>404 Page Not Found</h2>
+    </div>
+  )
+}
+
+
+
+function UserDetails(){
+  const { userid } = useParams();
+  const user = INITIAL_USERS_LIST.find((user) => user.id === +userid);
+  return(
+    <div>
+      <h2>Name: {user.name}</h2>
+      <h2>Details: {user.details}</h2>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+export const useStyle = makeStyles({
+  root: {
+    maxWidth: 500,
+  },
+  media: {
+    height: 400,
+  },
+});
 
 export default App;
