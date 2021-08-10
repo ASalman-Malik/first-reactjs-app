@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +36,89 @@
     transform: rotate(360deg);
   }
 }
+body{
+  /* background: linear-gradient(to top,  #a340a3, #e2517e,  #f6835f,  #ecbb60,   #d0ed8f )no-repeat; */
+  /* background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  min-height: 100vh;
+}
+
+.brands{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  
+  /* display: grid;
+  gap: 1rem;
+  row-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr; */
+  
+}
+
+@media (min-width: 52px) {
+  .brands{
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  
+}
+.brand-model{
+  color: #0f2d4b
+}
+.Vote{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 0.5rem;
+  width: 15rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+}
+/* .Vote :hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.25s;
+} */
+.specs{
+  list-style: none;
+}
+.phone-image{
+  max-height: 10rem;
+}
+
+.nav-bar{
+  display: flex;
+  justify-content: space-around;
+}
+.nav-bar a{
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-user-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* width: 25rem; */
+}
+.user-card{
+  min-width: 20rem;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* transition: box-shadow 0.25s; */
+  
+}
+/* .user-list :hover{
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+  
+} */
